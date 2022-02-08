@@ -1,0 +1,10 @@
+{
+    "id": "VisualLib",
+    "name": "Visual Library",
+    "author": "Jaghaimo & Schaf-Unschaf",
+    "utility": true,
+    "version": "1.0.0",
+    "description": "Library of reusable visual components",
+    "gameVersion": "0.95.1a-RC6",
+    "jars": ["VisualLib.jar"]
+}
