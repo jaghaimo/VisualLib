@@ -1,6 +1,11 @@
 package VisualLib.button;
 
+import VisualLib.color.ButtonBackground;
+import VisualLib.color.ButtonText;
+import VisualLib.color.ColorProvider;
+import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.ButtonAPI;
+import com.fs.starfarer.api.ui.CutStyle;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.ui.UIComponentAPI;
 import lombok.Getter;
@@ -25,12 +30,16 @@ public class BasicButton implements Button {
     @NonNull
     private float pad;
 
+    private Object data;
+    private ColorProvider base = new ButtonText();
+    private ColorProvider bg = new ButtonBackground();
+    private Alignment align = Alignment.MID;
+    private CutStyle style = CutStyle.ALL;
     private ButtonAPI button;
-    private Handler handler;
 
     @Override
     public UIComponentAPI render(TooltipMakerAPI tooltip) {
-        button = tooltip.addButton(text, handler, width, height, pad);
+        button = tooltip.addButton(text, data, base.get(), bg.get(), align, style, width, height, pad);
         return button;
     }
 
