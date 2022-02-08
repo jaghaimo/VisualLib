@@ -13,14 +13,13 @@ import lombok.Setter;
 public class ShortcutButton implements Button {
 
     private Button button;
-    private int key;
-    private boolean putLast;
+    private Shortcut shortcut;
 
     @Override
     public UIComponentAPI render(TooltipMakerAPI tooltip) {
         button.render(tooltip);
         ButtonAPI buttonAPI = getButton();
-        buttonAPI.setShortcut(key, putLast);
+        buttonAPI.setShortcut(shortcut.getKey(), shortcut.isPutLast());
         return buttonAPI;
     }
 
